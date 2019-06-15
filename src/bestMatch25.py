@@ -90,13 +90,21 @@ class BestMatch25:
                 if score_word_i > 0:
                     result += score_word_i
             return result
+        def __getReleatedDocument(self, query):
+            docNumbers = set()
+            wordCollection = set(query.split())
+            database = self.database
+            for word in wordCollection:
+                if word in database:
+                    docNumbers.update(database[word])
+            return docNumbers
+
         def rankings(self, query):
             result = []
             #because when frep = 0 then score is 0, so we should calculated for the related documents
-            #TODO: apply keyword search into this function
             documents = self.documents
-            lenOfDocuments = len(documents)
-            for index in range(lenOfDocuments):
+            indexReleatedDocuments = self.__getReleatedDocument(query)
+            for index in indexReleatedDocuments:
                 document = documents[index]
                 score = self.score(query, document)
                 if score > 0:
