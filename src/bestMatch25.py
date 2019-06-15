@@ -3,12 +3,7 @@ from math import log
 from utilitiesFunction import getLineFromFile
 from textProcessing import removeDiacritics, removeEchoCharacters
 from bisect import bisect_left
-
-#TODO: move to config file
-NUMBER_OF_DOCUMENTS_RESULT = 20
-PRODUCT_PATHFILE = '../sanbox/product_names.txt'
-K1 = 1.2 #K1 in [1.2, 2.0]
-B = 0.75
+from config import PRODUCT_PATHFILE, NUMBER_OF_DOCUMENTS_RESULT, K1, B
 
 #singleton class
 class BestMatch25:

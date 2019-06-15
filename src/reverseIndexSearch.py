@@ -1,9 +1,6 @@
 from utilitiesFunction import getLineFromFile
 from textProcessing import removeDiacritics, removeEchoCharacters
-
-
-#TODO: move to config file
-PRODUCT_PATHFILE = '../sanbox/product_names.txt'
+from config import PRODUCT_PATHFILE
 
 #singleton class
 class ReverseIndex:
@@ -46,10 +43,10 @@ class ReverseIndex:
                 self.__buildDatabase()
             return self.__wordTable
 
-        def search(self, text):
+        def search(self, query):
             docNumbers = set()
             result = []
-            strInput = removeDiacritics(text)
+            strInput = removeDiacritics(query)
             strInput = removeEchoCharacters(strInput)
             wordCollection = set(strInput.split())
             database = self.database

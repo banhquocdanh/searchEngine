@@ -1,26 +1,5 @@
 import re
-
-#TODO: move to config file
-diacritic_patterns = {
-    (re.compile('[àáảãạăắằẵặẳâầấậẫẩ]'), 'a'),
-    (re.compile('[ÀÁẢÃẠĂẮẰẴẶẲÂẦẤẬẪẨ]'), 'A'),
-    (re.compile('[đ]'), 'd'),
-    (re.compile('[Đ]'), 'D'),
-    (re.compile('[èéẻẽẹêềếểễệ]'), 'e'),
-    (re.compile('[ÈÉẺẼẸÊỀẾỂỄỆ]'), 'E'),
-    (re.compile('[ìíỉĩị]'), 'i'),
-    (re.compile('[ÌÍỈĨỊ]'), 'I'),
-    (re.compile('[òóỏõọôồốổỗộơờớởỡợ]'), 'o'),
-    (re.compile('[ÒÓỎÕỌÔỒỐỔỖỘƠỜỚỞỠỢ]'), 'O'),
-    (re.compile('[ùúủũụưừứửữự]'), 'u'),
-    (re.compile('[ÙÚỦŨỤƯỪỨỬỮỰ]'), 'U'),
-    (re.compile('[ỳýỷỹỵ]'), 'y'),
-    (re.compile('[ỲÝỶỸỴ]'), 'Y')
-}
-#TODO: move to config file
-echo_patterns = {
-    re.compile('[\{\}\[\]\(\)!@#\$%\^&*<>\?\/,\.\-\+\\|";:\'~`]')
-}
+from config import diacritic_patterns, echo_patterns
 
 #remove diacritics in VietNamese
 def removeDiacritics(text):
