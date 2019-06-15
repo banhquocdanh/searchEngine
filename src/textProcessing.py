@@ -1,5 +1,6 @@
 import re
 
+#TODO: move to config file
 diacritic_patterns = {
     (re.compile('[àáảãạăắằẵặẳâầấậẫẩ]'), 'a'),
     (re.compile('[ÀÁẢÃẠĂẮẰẴẶẲÂẦẤẬẪẨ]'), 'A'),
@@ -16,7 +17,7 @@ diacritic_patterns = {
     (re.compile('[ỳýỷỹỵ]'), 'y'),
     (re.compile('[ỲÝỶỸỴ]'), 'Y')
 }
-
+#TODO: move to config file
 echo_patterns = {
     re.compile('[\{\}\[\]\(\)!@#\$%\^&*<>\?\/,\.\-\+\\|";:\'~`]')
 }
@@ -32,8 +33,7 @@ def removeDiacritics(text):
 #remove echo characters
 def removeEchoCharacters(text):
     result = text
-    for item in echo_patterns:
-        regex, replace = item
-        result = regex.sub(replace, result)
+    for regex in echo_patterns:
+        result = regex.sub('', result)
     return result
 

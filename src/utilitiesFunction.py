@@ -4,9 +4,9 @@ from fileSurfer import FileSurfer
 def getLineFromFile(filePath):
     result = []
     with open(filePath, 'r') as fileHandle:
-        fileSf = FileSurfer(fileHandle)
-        fileEnd = not (fileSf.getLine())
+        fileSurfer = FileSurfer(fileHandle)
+        fileEnd = not (fileSurfer.getLine())
         while(not fileEnd):
-            result.append(fileSf.getLine())
-            fileEnd = not(fileSf.readNextLine())
+            result.append(fileSurfer.getLine().strip())
+            fileEnd = not(fileSurfer.readNextLine())
     return result
