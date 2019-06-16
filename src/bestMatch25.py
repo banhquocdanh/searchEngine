@@ -115,5 +115,5 @@ class BestMatch25:
             if numberDoc > 0:
                 rankings = rankings[:numberDoc]   #when numberDoc > len(rankings) then result equal rankings
             for index in range(len(rankings)):
-                result.append(rankings[index])
+                result.append(rankings[index][1])
             return result
