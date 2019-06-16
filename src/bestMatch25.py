@@ -11,8 +11,8 @@ class BestMatch25:
     def __init__(self):
         if BestMatch25.__instance == None:
             BestMatch25.__instance = BestMatch25.__BestMatch25()
-    def search(self, text):
-        return BestMatch25.__instance.search(text)
+    def search(self, text, numberDoc = NUMBER_OF_DOCUMENTS_RESULT):
+        return BestMatch25.__instance.search(text, numberDoc)
 
     @staticmethod
     def TF(term, document):
@@ -112,7 +112,8 @@ class BestMatch25:
             strInput = removeDiacritics(query)
             strInput = removeEchoCharacters(strInput)
             rankings = self.rankings(strInput)
-            result = [ranking[1] for ranking in rankings]
-            result = result[:numberDoc]   #when numberDoc > len(rankings) then result equal rankings
-            #result = rankings[:numberDoc]
+            if numberDoc > 0:
+                rankings = rankings[:numberDoc]   #when numberDoc > len(rankings) then result equal rankings
+            for index in range(len(rankings)):
+                result.append(rankings[index])
             return result

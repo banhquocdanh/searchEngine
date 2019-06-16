@@ -2,7 +2,7 @@ import re
 
 PRODUCT_PATHFILE = '../sanbox/product_names.txt'
 
-NUMBER_OF_DOCUMENTS_RESULT = 20
+NUMBER_OF_DOCUMENTS_RESULT = 20 #NUMBER_OF_DOCUMENTS_RESULT < 0 is get all result
 K1 = 1.2 #K1 in [1.2, 2.0]
 B = 0.75
 
